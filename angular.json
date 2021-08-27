@@ -21,7 +21,7 @@
                             "apps/admin/src/favicon.ico",
                             "apps/admin/src/assets"
                         ],
-                        "styles": ["apps/admin/src/styles.scss"],
+                        "styles": ["apps/admin/src/styles.scss", "node_modules/primeflex/primeflex.css"],
                         "scripts": []
                     },
                     "configurations": {
@@ -40,8 +40,8 @@
                             ],
                             "fileReplacements": [
                                 {
-                                    "replace": "apps/admin/src/environments/environment.ts",
-                                    "with": "apps/admin/src/environments/environment.prod.ts"
+                                    "replace": "environments/environment.ts",
+                                    "with": "environments/environment.prod.ts"
                                 }
                             ],
                             "outputHashing": "all"
@@ -140,7 +140,7 @@
                             "apps/ngshop/src/favicon.ico",
                             "apps/ngshop/src/assets"
                         ],
-                        "styles": ["apps/ngshop/src/styles.scss"],
+                        "styles": ["apps/ngshop/src/styles.scss","node_modules/primeflex/primeflex.css"],
                         "scripts": []
                     },
                     "configurations": {
@@ -159,8 +159,8 @@
                             ],
                             "fileReplacements": [
                                 {
-                                    "replace": "apps/ngshop/src/environments/environment.ts",
-                                    "with": "apps/ngshop/src/environments/environment.prod.ts"
+                                    "replace": "environments/environment.ts",
+                                    "with": "environments/environment.prod.ts"
                                 }
                             ],
                             "outputHashing": "all"
