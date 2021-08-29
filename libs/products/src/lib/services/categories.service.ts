@@ -25,7 +25,7 @@ export class CategoriesService {
     return this.http.put<Category>(this.url + id, category);
   }
 
-  createCategory(category: Category): Observable<Category>{
+  createCategory(category: Category): Observable<Category> {
     return this.http.post<Category>(this.url, category);
   }
 
