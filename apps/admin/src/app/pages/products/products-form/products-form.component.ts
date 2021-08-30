@@ -50,7 +50,7 @@ export class ProductsFormComponent implements OnInit {
       countInStock: ['', Validators.required],
       description: ['', Validators.required],
       richDescription: [''],
-      image: [''],
+      image: [undefined , Validators.required],
       isFeatured: [false]
     });
   }
@@ -65,6 +65,7 @@ export class ProductsFormComponent implements OnInit {
     this.route.params.subscribe(params => {
       if(params['id']) {
         this.editMode = true;
+        this.currentProductId = params['id']; 
         this._getProduct(params['id']);
       }
     })
@@ -73,7 +74,6 @@ export class ProductsFormComponent implements OnInit {
 
   private _getProduct(id: string) {
     this.productService.getProduct(id).subscribe((product: any) => {
-      console.log(product);
       this.form.patchValue({
         name: product.name ,
         brand: product.brand,
@@ -86,6 +86,8 @@ export class ProductsFormComponent implements OnInit {
         isFeatured: product.isFeatured 
       });
       this.imageDisplay = product.image;
+      this.form.setValidators([]);
+      this.image.updateValueAndValidity();
     });   
   } 
 
@@ -93,7 +95,7 @@ export class ProductsFormComponent implements OnInit {
     const file = $event.target.files[0];
     if (file) {
       this.form.patchValue({image: file});
-      this.form.get('image')?.updateValueAndValidity();
+      this.image?.updateValueAndValidity();
       const fileReader = new FileReader();
       fileReader.onload = () => {
         this.imageDisplay = fileReader.result;
@@ -112,9 +114,6 @@ export class ProductsFormComponent implements OnInit {
     } else {
       this._addProduct(productFormData);
     }
-    console.log(productFormData);
-    // productFormData.append('name', this.name.value);
-
   }
 
   private _updateProduct(productFormData: any) {
@@ -124,10 +123,11 @@ export class ProductsFormComponent implements OnInit {
         summary: 'Success',
         detail: `Product ${product.name} is updated` 
       });
-      this.form.reset();
+      // this.form.reset();
       this.isSubmitted = false;
       this.navigateBack();
-    }, () => {
+    }, (error) => {
+      console.log(error);
       this.messageService.add({
         severity: 'error',
         summary: 'Error',
@@ -137,24 +137,15 @@ export class ProductsFormComponent implements OnInit {
   }
 
   private _getFormData(): FormData {
-    let testAdd: any = new Array();
     const productFormData = new FormData();
     Object.keys(this.form.controls).forEach((key) => {
-      console.log(key, (this.form.get(key) as FormControl).value);
       const currentValue = (this.form.get(key) as FormControl).value
-      testAdd[key] = (this.form.get(key) as FormControl).value;
       productFormData.append(key, currentValue);
-      
     });
-
-    console.log(testAdd, "test add");
-
-    // console.log(productFormData)
     return productFormData;
   }
 
   private _addProduct(productFormData: FormData): void {
-
     this.productService.createProduct(productFormData).subscribe((product: Product) => {
       this.messageService.add({
         severity: 'success',

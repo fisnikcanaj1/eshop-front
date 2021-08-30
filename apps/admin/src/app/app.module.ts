@@ -16,9 +16,16 @@ import { CategoriesListComponent } from './pages/categories/categories-list/cate
 import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component'
+import { UsersListComponent } from './pages/users/users-list/users-list.component';
+import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 
-// 
+//  Local services
 import { CategoriesService } from '@bluebits/products';
+
+
+// PrimeNg services 
+import { MessageService } from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
 
 // PrimeNg Modules
 import { ToolbarModule } from 'primeng/toolbar';
@@ -29,14 +36,16 @@ import { TableModule } from 'primeng/table';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-import { ConfirmationService } from 'primeng/api';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
+import { TagModule } from 'primeng/tag';
+import { InputMaskModule } from 'primeng/inputmask';
+
+
 
 const UX_MODULE = [
     CardModule,
@@ -52,7 +61,9 @@ const UX_MODULE = [
     InputNumberModule,
     InputSwitchModule,
     DropdownModule,
-    EditorModule
+    EditorModule,
+    TagModule,
+    InputMaskModule
 ]
 
 const routes: Routes = [
@@ -87,6 +98,18 @@ const routes: Routes = [
             {
                 path: 'products/form/:id',
                 component: ProductsFormComponent
+            },
+            {
+                path: 'users',
+                component: UsersListComponent
+            },
+            {
+                path: 'users/form',
+                component: UsersFormComponent,
+            },
+            {
+                path: 'users/form/:id',
+                component: UsersFormComponent,
             }
         ]
     }
@@ -97,7 +120,15 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         AppComponent, 
-        DashboardComponent, ShellComponent, SidebarComponent, CategoriesListComponent, CategoriesFormComponent, ProductsListComponent, ProductsFormComponent],
+        DashboardComponent, 
+        ShellComponent, 
+        SidebarComponent, 
+        CategoriesListComponent, 
+        CategoriesFormComponent, 
+        ProductsListComponent, 
+        ProductsFormComponent,
+        UsersListComponent,
+        UsersFormComponent],
     imports: [
         BrowserModule,
         RouterModule.forRoot(routes),

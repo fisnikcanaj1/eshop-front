@@ -128,7 +128,7 @@
                 <div class="p-fluid">
                     <div class="p-field pt-2 col-md-12">
                         <label class="pb-2" for="description"
-                            >Count in stock</label
+                            >Description</label
                         >
                         <textarea
                             [rows]="5"
@@ -175,6 +175,11 @@
                             (change)="onImageUpload($event)"
                         />
                     </div>
+                    <small
+                    *ngIf="image.invalid && isSubmitted"
+                    class="p-error"
+                    >Image is required</small
+                >
                 </div>
                 <div class="p-fluid">
                     <div class="p-field pt-2 col-md-3">

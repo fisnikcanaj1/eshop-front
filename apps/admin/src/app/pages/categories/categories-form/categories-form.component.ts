@@ -106,7 +106,7 @@ export class CategoriesFormComponent implements OnInit {
         severity:'success', 
         summary:'Success',
         detail: `Category ${category.name} is created`});
-      this.form.reset();
+      // this.form.reset();
       this.isSubmitted = false;
       this.navigateBack();
     }, () => {
