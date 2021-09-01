@@ -20,11 +20,16 @@ const routes: Routes = [{
 }]
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, ProductListComponent, FooterComponent, HeaderComponent, DashboardComponent],
+  declarations: [AppComponent, 
+    HomePageComponent, 
+    ProductListComponent, 
+    FooterComponent, 
+    HeaderComponent, 
+    DashboardComponent],
   imports: [
-    BrowserModule, 
-    RouterModule.forRoot(routes), 
-    RouterModule, 
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    RouterModule,
     RouterModule,
     UiModule,
     AccordionModule,
@@ -33,4 +38,4 @@ const routes: Routes = [{
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

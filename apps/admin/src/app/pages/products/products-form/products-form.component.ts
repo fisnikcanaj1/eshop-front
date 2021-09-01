@@ -7,11 +7,6 @@ import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
 
 
-// interface Category {
-//   name: string,
-//   code: string
-// }
-
 @Component({
   selector: 'admin-products-form',
   templateUrl: './products-form.component.html',
@@ -68,7 +63,7 @@ export class ProductsFormComponent implements OnInit {
         this.currentProductId = params['id']; 
         this._getProduct(params['id']);
       }
-    })
+    });
     
   }
 
@@ -127,7 +122,7 @@ export class ProductsFormComponent implements OnInit {
       this.isSubmitted = false;
       this.navigateBack();
     }, (error) => {
-      console.log(error);
+      console.error(error);
       this.messageService.add({
         severity: 'error',
         summary: 'Error',
@@ -152,7 +147,6 @@ export class ProductsFormComponent implements OnInit {
         summary: 'Success',
         detail: `Product ${product.name} is created`
       });
-      this.form.reset();
       this.isSubmitted = false;
       this.navigateBack();
     }, () => {

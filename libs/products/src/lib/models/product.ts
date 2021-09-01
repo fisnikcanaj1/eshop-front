@@ -9,7 +9,7 @@ export interface Product {
     image?: string;
     images?: string[];
     rating?: number;
-    price?: number;
+    price: number;
     isFeatured?: boolean;
     brand?: string;
     numReviews?: any;

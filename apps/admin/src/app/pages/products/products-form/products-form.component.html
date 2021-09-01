@@ -6,7 +6,7 @@
     >
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="p-grid">
-                <div class="p-col-12">
+                <div class="col-12">
                     <p-toolbar>
                         <div class="p-toolbar-group-right justify-content-end">
                             <p-button
@@ -29,9 +29,9 @@
                 </div>
             </div>
             <div class="p-grid pt-3">
-                <div class="p-col-12">
-                    <div class="p-fluid p-formgrid row">
-                        <div class="p-field pt-2 col-md-4">
+                <div class="col-12">
+                    <div class="p-fluid p-formgrid grid">
+                        <div class="p-field pt-2 col-4">
                             <label class="pb-2" for="name">Name</label>
                             <input
                                 formControlName="name"
@@ -45,7 +45,7 @@
                                 >Name is required</small
                             >
                         </div>
-                        <div class="p-field pt-2 col-md-4">
+                        <div class="p-field pt-2 col-4">
                             <label class="pb-2" for="brand">Brand</label>
                             <input
                                 formControlName="brand"
@@ -59,7 +59,7 @@
                                 >Brand is required</small
                             >
                         </div>
-                        <div class="p-field pt-2 col-md-4">
+                        <div class="p-field pt-2 col-4">
                             <label class="pb-2" for="price">Price</label>
                             <p-inputNumber
                                 formControlName="price"
@@ -75,8 +75,8 @@
                             >
                         </div>
                     </div>
-                    <div class="p-fluid p-formgrid row">
-                        <div class="p-field pt-2 col-md-4">
+                    <div class="p-fluid p-formgrid grid">
+                        <div class="p-field pt-2 col-4">
                             <label class="pb-2" for="countInStock"
                                 >Count in stock</label
                             >
@@ -93,7 +93,7 @@
                                 >CountInStock is required</small
                             >
                         </div>
-                        <div class="p-field pt-2 col-md-4">
+                        <div class="p-field pt-2 col-4">
                             <label class="pb-2" for="category">Category</label>
 
                             <p-dropdown
@@ -113,10 +113,11 @@
                                 >Category is required</small
                             >
                         </div>
-                        <div class="p-field pt-2 col-md-4">
+                        <div class="p-field pt-2 col-4">
                             <label class="pb-2" for="isFeatured"
                                 >Is feature</label
                             >
+                            <br>
                             <p-inputSwitch
                                 class="d-block"
                                 inputId="isFeatured"
@@ -126,7 +127,7 @@
                     </div>
                 </div>
                 <div class="p-fluid">
-                    <div class="p-field pt-2 col-md-12">
+                    <div class="p-field pt-2 col-12">
                         <label class="pb-2" for="description"
                             >Description</label
                         >
@@ -145,7 +146,7 @@
                     </div>
                 </div>
                 <div class="p-fluid">
-                    <div class="p-field pt-2 col-md-12">
+                    <div class="p-field pt-2 col-12">
                         <label class="pb-2" for="richDescription"
                             >Rich description</label
                         >
@@ -165,7 +166,7 @@
                 </div>
 
                 <div class="p-fluid">
-                    <div class="pt-2 col-md-12">
+                    <div class="pt-2 col-12">
                         <label class="pb-2" for="file">Main image</label>
                         <input
                             class="p-inputtext"
@@ -182,7 +183,7 @@
                 >
                 </div>
                 <div class="p-fluid">
-                    <div class="p-field pt-2 col-md-3">
+                    <div class="p-field pt-2 col-3">
                         <img
                             class="width-100"
                             style="width: 100%"

@@ -74,7 +74,6 @@ export class CategoriesFormComponent implements OnInit {
 
   onSubmit() {
     this.isSubmitted = true;
-    console.log(this.name.invalid && this.isSubmitted);
     if(this.form.invalid) {
       return;
     }

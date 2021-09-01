@@ -79,7 +79,6 @@ export class UsersFormComponent implements OnInit {
   private _getUser(id: string) {
     
     this.usersService.getUser(id).subscribe((user: User) => {
-      console.log(user);
       this.form.patchValue({
         name: user.name,
         street: user.street,
@@ -105,16 +104,13 @@ export class UsersFormComponent implements OnInit {
     if (this.form.invalid) return
     const userFormData = this._getFormData();
     if(this.editMode) {
-      console.log("edit");
       this._updateUser(userFormData);
     } else {
-      console.log()
       this._addUser(userFormData);
     }
   }
 
   private _updateUser(userFormData: User) {
-    console.log(userFormData);
     this.usersService.editUser(this.currentUserId, userFormData).subscribe((user: User) => {
       this.messageService.add({
         severity: 'success',
@@ -125,7 +121,7 @@ export class UsersFormComponent implements OnInit {
       this.isSubmitted = false;
       this.navigateBack();
     }, (error) => {
-      console.log(error);
+      console.error(error);
       this.messageService.add({
         severity: 'error',
         summary: 'Error',

@@ -22,9 +22,8 @@
                             "apps/admin/src/assets"
                         ],
                         "styles": ["apps/admin/src/styles.scss",
-                             "node_modules/primeflex/primeflex.css",
                              "node_modules/quill/dist/quill.core.css", 
-                             "node_modules/quill/dist/quill.snow.css"
+                             "node_modules/quill/dist/quill.snow.css",
                             ],
                         "scripts": ["node_modules/quill/dist/quill.js"]
                     },
@@ -144,7 +143,7 @@
                             "apps/ngshop/src/favicon.ico",
                             "apps/ngshop/src/assets"
                         ],
-                        "styles": ["apps/ngshop/src/styles.scss","node_modules/primeflex/primeflex.css"],
+                        "styles": ["apps/ngshop/src/styles.scss"],
                         "scripts": []
                     },
                     "configurations": {
@@ -328,6 +327,7 @@
         }
     },
     "cli": {
+      "analytics": "a36dde8d-5264-4764-abdd-c5ef78155c95",
         "defaultCollection": "@nrwl/angular"
     },
     "schematics": {
