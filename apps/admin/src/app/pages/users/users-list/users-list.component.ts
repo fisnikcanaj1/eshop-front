@@ -28,12 +28,10 @@ export class UsersListComponent implements OnInit {
 
   private _getUsers(): void {
     this.usersService.getUsers().subscribe(users => {
-      console.log(users);
       this.users = users;
     });
   }
 
- 
 
   deleteUser(id: string): void {
     this.confirmationService.confirm({

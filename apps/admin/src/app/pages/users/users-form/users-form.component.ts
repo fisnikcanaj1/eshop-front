@@ -133,7 +133,7 @@ export class UsersFormComponent implements OnInit {
   private _getFormData(): User {
     let userData: any = {};
     Object.keys(this.form.controls).forEach((key: any) => {
-      console.log(this.form.controls[key].value);
+      (this.form.controls[key].value);
       userData[key] = this.form.controls[key].value
     })
     return userData; 
@@ -141,7 +141,6 @@ export class UsersFormComponent implements OnInit {
 
   private _addUser(userFormData: User): void {
     this.usersService.createUser(userFormData).subscribe((user: User) => {
-      console.log("her to the user");
       this.messageService.add({
         severity: 'success',
         summary: 'Success',
