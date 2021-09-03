@@ -17,7 +17,13 @@
                 </div>
                 <div class="col-4">
                     <h4>Order status</h4>
-                    <p-dropdown (onChange)="onStatusChange()" [options]="orderStatuses" optionsValue="id" optionLabel="name" [(ngModel)]="selectedStatus"></p-dropdown>
+                    <p-dropdown
+                        (onChange)="onStatusChange()"
+                        [options]="orderStatuses"
+                        optionsValue="id"
+                        optionLabel="name"
+                        [(ngModel)]="selectedStatus"
+                    ></p-dropdown>
                 </div>
                 <div class="col-4">
                     <h4>Order date</h4>
@@ -26,7 +32,7 @@
             </div>
         </p-fieldset>
         <p-fieldset styleClass="mb-3" [toggleable]="true" legend="Order items">
-            <div class="flex mb-1"> 
+            <div class="flex mb-1">
                 <div class="col-2">
                     <h4>Name</h4>
                 </div>
@@ -46,37 +52,44 @@
                     <h4>Subtotal</h4>
                 </div>
             </div>
-            <div class="flex mb-1">
-                <ng-container *ngFor="let orderItem of order.orderItems">
-                    <div class="col-2">
-                        <p>{{ orderItem.product?.name }}</p>
-                    </div>
-                    <div class="col-2">
-                        <p>{{ orderItem.product?.brand }}</p>
-                    </div>
-                    <div class="col-2">
-                        <p>{{ orderItem.product?.category?.name }}</p>
-                    </div>
-                    <div class="col-2">
-                        <p>{{ orderItem.product?.price | currency: 'EUR' }}</p>
-                    </div>
-                    <div class="col-2">
-                        <p>{{ orderItem?.quantity }}</p>
-                    </div>
-                    <div class="col-2">
-                        <p>
-                            {{
-                                orderItem.product.price * orderItem.quantity
-                                    | currency: 'EUR'
-                            }}
-                        </p>
-                    </div>
-                </ng-container>
-            </div>
-            <div class="flex align-items-center justify-content-end" style="color: green">
+            <ng-container  *ngIf="order.orderItems" >
+                <div  class="flex mb-1" *ngFor="let orderItem of order.orderItems">
+                    <ng-container *ngIf="orderItem.product">
+                        <div class="col-2">
+                            <p>{{ orderItem.product?.name }}</p>
+                        </div>
+                        <div class="col-2">
+                            <p>{{ orderItem.product?.brand }}</p>
+                        </div>
+                        <div class="col-2">
+                            <p>{{ orderItem.product?.category?.name }}</p>
+                        </div>
+                        <div class="col-2">
+                            <p>
+                                {{ orderItem.product?.price | currency: 'EUR' }}
+                            </p>
+                        </div>
+                        <div class="col-2">
+                            <p>{{ orderItem?.quantity }}</p>
+                        </div>
+                        <div class="col-2">
+                            <p>
+                                {{
+                                    orderItem.product.price * orderItem.quantity
+                                        | currency: 'EUR'
+                                }}
+                            </p>
+                        </div>
+                    </ng-container>
+                </div>
+            </ng-container>
+            <div
+                class="flex align-items-center justify-content-end"
+                style="color: green"
+            >
                 <div class="col-2"><h3 class="bold">Total price</h3></div>
                 <div class="col-2 offset-19">
-                    <h3>{{ order.totalPrice | currency:"EUR" }}</h3>
+                    <h3>{{ order.totalPrice | currency: 'EUR' }}</h3>
                 </div>
             </div>
         </p-fieldset>
@@ -86,26 +99,25 @@
             legend="Order address"
         >
             <div class="flex">
-                <div class="col-4"> 
+                <div class="col-4">
                     <h4>Order address</h4>
                     <p>
-                        {{order.shippingAddress1}}
-                        {{order.shippingAddress2}}
-                        {{order.zip}} {{order.city}} 
-                        <br>
-                        {{order.country}}
-                        
+                        {{ order.shippingAddress1 }}
+                        {{ order.shippingAddress2 }}
+                        {{ order.zip }} {{ order.city }}
+                        <br />
+                        {{ order.country }}
                     </p>
                 </div>
                 <div class="col-4">
                     <h4>Costumer address</h4>
                     <p>
-                        {{order.user?.name}}
-                    </p> 
+                        {{ order.user?.name }}
+                    </p>
                 </div>
                 <div class="col-4">
                     <h4>Contact info</h4>
-                    <p>{{order.phone}}</p>
+                    <p>{{ order.phone }}</p>
                 </div>
             </div>
         </p-fieldset>

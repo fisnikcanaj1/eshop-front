@@ -1,0 +1,32 @@
+<div class="login-register">
+    <div class="login-register-panel">
+        <div class="flex h-full">
+            <div class="col-6 p-0 h-full">
+                <div class="login-register-img">
+                    <img class="login-register-img-src" src="assets/login-photo.png" alt="">
+                </div>
+                
+            </div>
+            <div class="col-6">
+                <div class="login-form-wrapper">
+                    <h3>Welcome!</h3>
+                    <h2>Login Page</h2>
+                    <form (submit)="submit($event)"  class="pt-3" >
+                        <div class="p-inputgroup">
+                            <span formControlName="user" class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                            <input type="text" pInputText placeholder="Username">         
+                        </div>
+                        <span *ngIf="user.invalid"></span>
+                        <div class="p-inputgroup">
+                            <span formControlName="password" class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+                            <input type="password" pInputText placeholder="Password">         
+                        </div>
+
+                        <p-button type="submit" styleClass="mt-3 w-full" label="Submit" ></p-button>
+                    </form>
+                    
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>

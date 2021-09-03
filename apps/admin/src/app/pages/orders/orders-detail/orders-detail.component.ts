@@ -44,6 +44,7 @@ export class OrdersDetailComponent implements OnInit {
     this.ordersService.getOrder(id).subscribe(order => {
       let currentStatus = ORDER_STATUS[JSON.stringify(order.status)]
       this.selectedStatus = {id: JSON.stringify(order.status), name: currentStatus.label};
+      console.log(order);
       this.order = order;
       this.isLoaded = true;
     }); 

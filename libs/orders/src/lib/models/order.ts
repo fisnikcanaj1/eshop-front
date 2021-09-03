@@ -1,5 +1,5 @@
 import { OrderItem } from "./order-item";
-import { User } from "@bluebits/products"
+import { User } from "@bluebits/users"
 
 export class Order {
     id?: string;

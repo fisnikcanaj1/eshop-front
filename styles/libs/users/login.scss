@@ -1,0 +1,40 @@
+.login-register {
+    background-image: linear-gradient(135deg, rgba(103, 107, 111, 1) 0%, rgba(49, 43, 46, 1) 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    &-panel {
+        max-width: 650px;
+        width: 100%;
+        background-color: white;
+        height: 525px;
+    }
+   
+    &-img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    &-img-src {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .login-form-wrapper {
+        padding: 30px 15px;
+    }
+
+    & .p-inputgroup {
+        padding-top: 8px;
+       padding-bottom: 8px; 
+    }
+}

@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 // import { User, UsersService } from '@bluebits/users';
 import { ConfirmationService } from 'primeng/api/';
 import { MessageService } from 'primeng/api';
-import { User, UsersService } from '@bluebits/products';
+import { User, UsersService } from '@bluebits/users';
 
 @Component({
   selector: 'admin-users-list',
